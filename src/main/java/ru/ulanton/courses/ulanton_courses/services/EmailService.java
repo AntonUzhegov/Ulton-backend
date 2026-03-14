@@ -29,10 +29,10 @@ public class EmailService {
 
             String adminText = String.format(
                     "📧 НОВОЕ ОБРАЩЕНИЕ С САЙТА ULTON\n\n" +
-                            "👤 Имя: %s\n" +
-                            "📩 Email: %s\n" +
-                            "🏷️ Тема: %s\n\n" +
-                            "💬 Сообщение:\n%s\n\n" +
+                            "Имя: %s\n" +
+                            "Email: %s\n" +
+                            "Тема: %s\n\n" +
+                            "Сообщение:\n%s\n\n" +
                             "---\n" +
                             "Это сообщение отправлено с формы обратной связи",
                     name, email, topic, message
