@@ -4,6 +4,7 @@ public class LoginResponse {
     private String message;
     private boolean success;
     private UserDto user;
+    private String token;  // Новое поле
 
     public LoginResponse() {}
 
@@ -13,6 +14,7 @@ public class LoginResponse {
         this.user = user;
     }
 
+    // Геттеры и сеттеры
     public String getMessage() { return message; }
     public void setMessage(String message) { this.message = message; }
 
@@ -21,4 +23,7 @@ public class LoginResponse {
 
     public UserDto getUser() { return user; }
     public void setUser(UserDto user) { this.user = user; }
+
+    public String getToken() { return token; }
+    public void setToken(String token) { this.token = token; }
 }
