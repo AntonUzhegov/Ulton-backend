@@ -9,7 +9,6 @@ import ru.ulanton.courses.ulanton_courses.services.EmailService;
 
 @RestController
 @RequestMapping("/api/contacts")
-@CrossOrigin(origins = "http://localhost:3000")
 public class ContactController {
 
     @Autowired
