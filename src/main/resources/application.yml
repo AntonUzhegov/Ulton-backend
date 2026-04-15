@@ -1,0 +1,97 @@
+# DATABASE CONFIGURATION
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/CoursesDB
+    username: app_user
+    password: app_user_password
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+  sql:
+    init:
+      mode: never
+
+  # EMAIL CONFIGURATION
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: uzhegov2006@gmail.com
+    password: ${GMAIL_APP_PASSWORD:YOUR_APP_PASSWORD_HERE}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+    default-encoding: UTF-8
+    protocol: smtp
+
+  # JACKSON (JSON CONFIGURATION)
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zone: UTC
+    default-property-inclusion: non_null
+
+  # REDIS CONFIGURATION
+  redis:
+    host: localhost
+    port: 6379
+    password:
+    timeout: 2000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+
+  # CACHE CONFIGURATION
+  cache:
+    type: redis
+    redis:
+      time-to-live: 600000
+      cache-null-values: false
+
+# APPLICATION SPECIFIC
+app:
+  admin:
+    email: uzhegov2006@gmail.com
+
+# SERVER CONFIGURATION
+server:
+  port: 8080
+  servlet:
+    context-path: /
+  error:
+    whitelabel:
+      enabled: false
+
+# LOGGING
+logging:
+  level:
+    ru.ulanton.courses: DEBUG
+    org.springframework.security: INFO
+    org.hibernate:
+      SQL: DEBUG
+      type:
+        descriptor:
+          sql:
+            BasicBinder: TRACE
+
+# JWT CONFIGURATION
+jwt:
+  secret: ${JWT_SECRET:mySuperSecretKeyForJWTGenerationWithAtLeast32Characters}
+  expiration: ${JWT_EXPIRATION:86400000}
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000}

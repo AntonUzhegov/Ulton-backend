@@ -1,26 +1,35 @@
-package ru.ulanton.courses.ulanton_courses.dto;
+package ru.ulanton.courses.ulanton_courses.dto.request;
 
-public class ContactFormDto {
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
+public class ContactFormDTO {
+
+    @NotBlank(message = "Имя обязательно")
     private String name;
+
+    @NotBlank(message = "Email обязателен")
+    @Email(message = "Введите корректный email")
     private String email;
+
+    @NotBlank(message = "Тема обязательна")
     private String topic;
+
+    @NotBlank(message = "Сообщение обязательно")
     private String message;
 
-    // конструкторы
-    public ContactFormDto() {}
+    public ContactFormDTO(){}
 
-    public ContactFormDto(String name, String email, String topic, String message) {
+    public ContactFormDTO(String name, String email, String topic, String message){
         this.name = name;
         this.email = email;
         this.topic = topic;
         this.message = message;
     }
 
-    // геттеры и сеттеры
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -28,7 +37,6 @@ public class ContactFormDto {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -36,7 +44,6 @@ public class ContactFormDto {
     public String getTopic() {
         return topic;
     }
-
     public void setTopic(String topic) {
         this.topic = topic;
     }
@@ -44,16 +51,7 @@ public class ContactFormDto {
     public String getMessage() {
         return message;
     }
-
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return "Имя: " + name + "\n" +
-                "Email: " + email + "\n" +
-                "Тема: " + topic + "\n" +
-                "Сообщение:\n" + message;
     }
 }
